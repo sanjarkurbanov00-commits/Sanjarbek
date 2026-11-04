@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="uz" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanjarbek Kurbonov — Senior Product, 3D & Marketplace Designer</title>
+  <meta name="description" content="Senior Product UI/UX, Blender 3D, Nano Banana AI & Marketplace Visual Designer in Tashkent. Executive Resume & Interactive Case Studies (2018–2026)." />
+  
+  <!-- Open Graph / Telegram Link Preview (No Gemini Branding!) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sanjarbek Kurbonov — Senior Product, 3D & Marketplace Designer" />
+  <meta property="og:description" content="Selected Works, Case Studies (2018–2026) & Executive Resume — Product UI/UX, Blender 3D, AI Visuals & Brand Strategy. Tashkent, UZ." />
+  <meta property="og:image" content="/public/og-banner.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#09090B" />
+
+  <!-- Google Fonts: Syne, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS & React Production Stack -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Syne', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            obsidian: '#09090B',
+            charcoal: '#121215',
+            flame: '#FF4500',
+            flameHover: '#FF571A',
+            alabaster: '#F4F4F6',
+          }
+        }
+      }
+    }
+  </script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      background-color: #09090B;
+      color: #F4F4F6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    .font-display { font-family: 'Syne', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #09090B; }
+    ::-webkit-scrollbar-thumb { background: #27272A; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #FF4500; }
+
+    /* Metallic & Carbon Card Sheen */
+    .card-sheen {
+      background: linear-gradient(135deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.02) 45%, rgba(0,0,0,0.25) 100%);
+    }
+    .carbon-grid {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+
+    // 4-Point Star Vector (FinGuard Signature)
+    const StarFour = ({ className = "w-6 h-6", fill = "#FF4500" }) => (
+      <svg viewBox="0 0 32 32" fill="none" className={className}>
+        <path d="M16 0C16 10.5 21.5 16 32 16C21.5 16 16 21.5 16 32C16 21.5 10.5 16 0 16C10.5 16 16 10.5 16 0Z" fill={fill}/>
+      </svg>
+    );
+
+    // Arrow Up-Right Vector
+    const ArrowUpRight = ({ className = "w-4 h-4" }) => (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="square" className={className}>
+        <path d="M7 17L17 7M17 7H8M17 7V16" />
+      </svg>
+    );
+
+    const CONTENT = {
+      uz: {
+        nav: ["Ekspertiza", "Keyslar", "Arxitektura", "Rezyume", "Hamkorlik"],
+        status: "TOSHKENT // OFIS (FULL-TIME) & LOYIHAVIY HAMKORLIK",
+        heroTop: "SENIOR PRODUCT, 3D & MARKETPLACE ARCHITECT",
+        heroTitle1: "RAQAMLI MAHSULOT",
+        heroTitle2: "VA 3D VIZUAL",
+        heroTitle3: "ARXITEKTURASI",
+        heroSub: "Foydalanuvchi psixologiyasi (UI/UX), fotorealistik Blender 3D sahnalar va Nano Banana AI generativ oqimlarini biznes konversiyasi uchun birlashtiraman.",
+        ctaPrimary: "BOG'LANISH VA TAKLIF",
+        ctaSecondary: "INTERAKTIV REZYUME",
+        activeMetricLabel: "Bajarilgan Vizual & UX Ekotizimlar",
+        callout1: "Mahsulot UI/UX & Dizayn Tizimlar",
+        callout2: "Blender 3D & Nano Banana AI",
+        callout3: "Marketpleys & Raqamli Brending",
+        aboutTag: "01 // EKSPERTIZA VA RAQAMLAR",
+        aboutTitle1: "SANJARBEK KURBONOV",
+        aboutTitle2: "BILAN TANISHING",
+        aboutDesc: "2018-yildan buyon grafik dizayn, 2021-yildan Blender 3D modellashtirish, 2022-yildan marketpleys infografikasi va 2023–2024-yillarda Olcha.uz'da Product UI/UX dizayner sifatida shakllangan kompleks tajriba.",
+        stat1Title: "8+ YIL",
+        stat1Sub: "Dizayn, 3D, Marketpleys va UI/UX sohalaridagi uzluksiz amaliy tajriba (2018–2026).",
+        stat2Sub: "Olcha.uz savatcha, checkout va filtrlash oqimlarini qayta loyihalash orqali konversiya o'sishi.",
+        stat3Sub: "Marketpleys kartochkalari (Uzum, Wildberries) va AI-tijoriy vizuallarda yuqori CTR ko'rsatkichi.",
+        featuresTag: "02 // BARCHASI BITTA MUTAXASSISDA",
+        featuresTitle1: " BIZNES UCHUN 4 TA",
+        featuresTitle2: "STRATEGIK YO'NALISH",
+        featuresDesc: "Kompaniyangizga alohida UI/UX dizayner, alohida 3D artist va AI-prompt muhandis yollash shart emas — barcha jarayon yagona dizayn-kod tizimida boshqariladi.",
+        casesTag: "03 // TANLANGAN KEYSLAR VA REZYUME",
+        casesTitle1: "AMALIY NATIJALAR",
+        casesTitle2: "& KARYERA XRONOLOGIYASI",
+        benefitsTag: "04 // KOMPANIYA VA MIJOZLAR UCHUN",
+        benefitsTitle1: "HAMKORLIK",
+        benefitsTitle2: "STANDARTLARI",
+        b1: "Toshkent shahrida ofis formatida (5/2 yoki 6/1) doimiy ishlashga tayyor — kutilayotgan maosh $1,000 – $1,200+.",
+        b2: "Loyihaviy buyurtmalar aniq texnik topshiriq (TZ) va 50% oldindan to'lov asosida boshlanadi (yakuniy fayllar 100% to'lovdan so'ng).",
+        b3: "Faqat raqamli mahsulotlar, brend-aydentika, 3D va marketpleys dizayni (qadoqlash va poligrafiya/bosmaxona xizmatlari bajarilmaydi).",
+        copyBrief: "TAYYOR BRIFNI NUSXALASH",
+        copied: "BRIF NUSXALANDI ✓",
+        tgBtn: "TELEGRAMDA YOZISH"
+      },
+      ru: {
+        nav: ["Экспертиза", "Кейсы", "Архитектура", "Резюме", "Контакт"],
+        status: "ТАШКЕНТ // ОФИС (FULL-TIME) И ПРОЕКТНАЯ РАБОТА",
+        heroTop: "SENIOR PRODUCT, 3D & MARKETPLACE ARCHITECT",
+        heroTitle1: "АРХИТЕКТУРА",
+        heroTitle2: "ЦИФРОВЫХ ПРОДУКТОВ",
+        heroTitle3: "И 3D ВИЗУАЛА",
+        heroSub: "Объединяю продуктовую аналитику (UI/UX), фотореалистичный 3D в Blender и генеративные пайплайны Nano Banana AI для роста конверсии вашего бизнеса.",
+        ctaPrimary: "ОБСУДИТЬ ПРЕДЛОЖЕНИЕ",
+        ctaSecondary: "ОТКРЫТЬ РЕЗЮМЕ",
+        activeMetricLabel: "Реализованных дизайн-систем и проектов",
+        callout1: "Продуктовый UI/UX и Дизайн-системы",
+        callout2: "Blender 3D & Nano Banana AI",
+        callout3: "Маркетплейс и Цифровой Брендинг",
+        aboutTag: "01 // ЭКСПЕРТИЗА В ЦИФРАХ",
+        aboutTitle1: "ПОЗНАКОМЬТЕСЬ:",
+        aboutTitle2: "САНЖАРБЕК КУРБОНОВ",
+        aboutDesc: "С 2018 года в графическом дизайне, с 2021 в 3D-моделировании (Blender), с 2022 в маркетплейсах, а в 2023–2024 — Product UI/UX дизайнер в экосистеме Olcha.uz.",
+        stat1Title: "8+ ЛЕТ",
+        stat1Sub: "Непрерывного практического опыта в визуальном, 3D и продуктовом дизайне (2018–2026).",
+        stat2Sub: "Рост конверсии чекаута и корзины в мобильном приложении Olcha.uz после редизайна.",
+        stat3Sub: "Прирост CTR карточек товаров (Uzum, Wildberries) за счет 3D-рендеров и AI-композитинга.",
+        featuresTag: "02 // ВСЁ В ОДНОЙ ЭКОСИСТЕМЕ",
+        featuresTitle1: "4 СТРАТЕГИЧЕСКИХ",
+        featuresTitle2: "НАПРАВЛЕНИЯ В ОДНОМ ЛИЦЕ",
+        featuresDesc: "Вам не нужно нанимать отдельно продуктового дизайнера, 3D-визуализатора и AI-инженера — весь визуальный цикл синхронизирован.",
+        casesTag: "03 // ИЗБРАННЫЕ КЕЙСЫ И ОПЫТ",
+        casesTitle1: "РЕАЛЬНЫЕ ПРОЕКТЫ",
+        casesTitle2: "& ХРОНОЛОГИЯ КАРЬЕРЫ",
+        benefitsTag: "04 // УСЛОВИЯ СОТРУДНИЧЕСТВА",
+        benefitsTitle1: "СТАНДАРТЫ",
+        benefitsTitle2: "РАБОТЫ И НАЙМА",
+        b1: "Готов к работе в офисе в Ташкенте (Full-time 5/2 или 6/1) — ориентир по зарплате $1,000 – $1,200+.",
+        b2: "Проектные заказы стартуют по четкому ТЗ и 50% предоплате (финальные исходники передаются после 100% оплаты).",
+        b3: "Фокус исключительно на digital-продуктах, 3D и брендинге (упаковка, допечатная подготовка и полиграфия не выполняются).",
+        copyBrief: "СКОПИРОВАТЬ БРИФ",
+        copied: "БРИФ СКОПИРОВАН ✓",
+        tgBtn: "НАПИСАТЬ В TELEGRAM"
+      },
+      en: {
+        nav: ["Expertise", "Case Studies", "Architecture", "Resume", "Contact"],
+        status: "TASHKENT // OFFICE FULL-TIME & PROJECT PARTNERSHIPS",
+        heroTop: "SENIOR PRODUCT, 3D & MARKETPLACE ARCHITECT",
+        heroTitle1: "ARCHITECTING",
+        heroTitle2: "DIGITAL PRODUCTS",
+        heroTitle3: "& 3D VISUALS",
+        heroSub: "Fusing high-conversion Product UI/UX, photorealistic Blender 3D visualization, and Nano Banana AI workflows to build category-leading brands.",
+        ctaPrimary: "INITIATE COLLABORATION",
+        ctaSecondary: "EXECUTIVE RESUME",
+        activeMetricLabel: "Delivered Visual & Product Ecosystems",
+        callout1: "Product UI/UX & Design Systems",
+        callout2: "Blender 3D & Nano Banana AI",
+        callout3: "Marketplace & Digital Identity",
+        aboutTag: "01 // STUDIO METRICS",
+        aboutTitle1: "GETTING TO KNOW",
+        aboutTitle2: "SANJARBEK KURBONOV",
+        aboutDesc: "More than a visual designer — a strategic product partner combining Graphic Design (since 2018), Blender 3D (since 2021), Marketplace Systems (since 2022), and Olcha.uz Product UI/UX leadership.",
+        stat1Title: "8+ YRS",
+        stat1Sub: "Cross-disciplinary execution across Brand, 3D Visualization, E-Commerce & Product UI/UX.",
+        stat2Sub: "Checkout & cart funnel conversion lift engineered for Olcha.uz mobile commerce.",
+        stat3Sub: "Average CTR increase on marketplace product cards using 3D + AI commercial staging.",
+        featuresTag: "02 // ALL-IN-ONE PLATFORM FOR DESIGN",
+        featuresTitle1: "4 CORE DISCIPLINES",
+        featuresTitle2: "UNIFIED IN ONE WORKFLOW",
+        featuresDesc: "Eliminate handoff friction between UI/UX designers, 3D artists, and frontend teams with a single unified architecture.",
+        casesTag: "03 // SELECTED WORKS & TIMELINE",
+        casesTitle1: "CASE STUDIES",
+        casesTitle2: "& CAREER CHRONOLOGY",
+        benefitsTag: "04 // ENGAGEMENT PROTOCOL",
+        benefitsTitle1: "WORKING WITH",
+        benefitsTitle2: "COMPANIES & CLIENTS",
+        b1: "Available for Tashkent in-office Full-Time roles ($1,000 – $1,200+ target compensation).",
+        b2: "Project collaborations require a clear brief and 50% upfront deposit (final source files released upon 100% settlement).",
+        b3: "Strictly focused on Digital UI/UX, 3D, AI Visuals & Brand Identity (excluding print/packaging/pre-press).",
+        copyBrief: "COPY PROJECT BRIEF",
+        copied: "BRIEF COPIED ✓",
+        tgBtn: "MESSAGE ON TELEGRAM"
+      }
+    };
+
+    const PILLARS = [
+      {
+        num: "01",
+        title: "Product UI/UX & Mobile Commerce Systems",
+        badge: "OLCHA.UZ // FINTECH & E-COM",
+        metricMain: "+34%",
+        metricPending: "1.8s",
+        metricCancel: "-28%",
+        metricLabels: ["Checkout Conversion", "Flow Speed", "Cart Drop-off"],
+        items: [
+          { name: "Olcha.uz Mobile App & Checkout", date: "Product Designer · 2023–2024", status: "DEPLOYED", color: "bg-flame text-white" },
+          { name: "Smart Filter & Product Card System", date: "Design System · 140+ Components", status: "VERIFIED", color: "bg-flame text-white" },
+          { name: "Fast-Food Telegram Mini App", date: "WebApp UI/UX · May 2026", status: "LIVE", color: "bg-zinc-900 text-white" }
+        ]
+      },
+      {
+        num: "02",
+        title: "Photorealistic Blender 3D & Commercial Staging",
+        badge: "BLENDER 3D // CYCLES & MCP",
+        metricMain: "4K",
+        metricPending: "60fps",
+        metricCancel: "100%",
+        metricLabels: ["Raytraced Output", "Interactive Viewport", "Custom Geometry"],
+        items: [
+          { name: "Luxury Fragrance & Diffuser 3D Bottle", date: "Hard-Surface & Glass Caustics", status: "4K RENDER", color: "bg-flame text-white" },
+          { name: "E-Commerce Hero 3D Product Assets", date: "Subsurface & Studio Lighting", status: "DEPLOYED", color: "bg-flame text-white" },
+          { name: "Blender MCP + LLM Automated Scene", date: "AI-Assisted 3D Pipeline · Oct 2026", status: "R&D LIVE", color: "bg-zinc-900 text-white" }
+        ]
+      },
+      {
+        num: "03",
+        title: "Nano Banana AI Commercial Photography",
+        badge: "NANO BANANA AI // PROMPT ARCHITECTURE",
+        metricMain: "+42%",
+        metricPending: "4.8x",
+        metricCancel: "0$",
+        metricLabels: ["Marketplace CTR", "Production Speed", "Studio Rent Cost"],
+        items: [
+          { name: "Aroma Diffuser & Perfume Campaign", date: "Structured Prompt Engineering", status: "APPROVED", color: "bg-flame text-white" },
+          { name: "Uzum & Wildberries Card Visuals", date: " Visual Hierarchy & Infographics", status: "HIGH CTR", color: "bg-flame text-white" },
+          { name: "Hybrid Blender 3D + AI Compositing", date: "Photoshop Post-Production", status: "STUDIO", color: "bg-zinc-900 text-white" }
+        ]
+      },
+      {
+        num: "04",
+        title: "Digital Brand Identity & Design-to-Code (React)",
+        badge: "GOOGLE AI STUDIO // REACT + TAILWIND",
+        metricMain: "99%",
+        metricPending: "2.4x",
+        metricCancel: "ZERO",
+        metricLabels: ["Figma-to-Code Fidelity", "Delivery Velocity", "Print/Pre-press"],
+        items: [
+          { name: "Startup Medical Uzbekistan", date: "Homepage UI/UX Architecture · May 2026", status: "DELIVERED", color: "bg-flame text-white" },
+          { name: "Figma → React + Tailwind Workflow", date: "Google AI Studio Integration · Oct 2026", status: "ACTIVE", color: "bg-flame text-white" },
+          { name: "Strategic Digital Brand Identity", date: "Logo, Guideline & Digital Visuals", status: "PREMIUM", color: "bg-zinc-900 text-white" }
+        ]
+      }
+    ];
+
+    const CASES = [
+      {
+        id: "olcha",
+        index: "CASE 01 // E-COMMERCE",
+        title: "Olcha.uz — Mobile App, Cart & Checkout Redesign",
+        role: "UX & Product Designer (2023–2024)",
+        impact: "+34% Checkout Completion",
+        stack: ["Figma", "Design System", "User Flows", "Prototyping"],
+        challenge: "Murakkab ko'p bosqichli savatcha, muddatli to'lov (bo'lib to'lash) kalkulyatori va minglab mahsulotlar ichida chalkash filtrlash tizimi sababli mobil ilovada xaridni oxirigacha yetkazmaslik (drop-off) yuqori edi.",
+        solution: "Mahsulot kartochkalari ierarxiyasi, 3 qadamli tezkor Checkout va dinamik filtrlash tizimi noldan loyihalandi. Muddatli to'lov shartlari foydalanuvchiga bir ekranda tushunarli vizual-blokda ko'rsatildi.",
+        beforeLabel: "ESKI KO'P BOSQICHLI CHECKOUT (6 QADAM)",
+        afterLabel: "YANGI TEZKOR OQIM (+34% KONVERSIYA)"
+      },
+      {
+        id: "fragrance",
+        index: "CASE 02 // 3D + NANO BANANA AI",
+        title: "Luxury Fragrance & Aroma Diffuser — 3D + AI Visuals",
+        role: "3D Visualizer & AI Prompt Architect (2025–2026)",
+        impact: "+42% Marketplace CTR",
+        stack: ["Blender 3D", "Nano Banana AI", "Photoshop", "Cycles Render"],
+        challenge: "Mijozga qimmat fotostudiya yollamasdan, atir va aroma-diffuzor shishalarini tabiiy yorug'lik sinishi (caustics), botanika elementlari va premium podiumda 4K sifatda ko'rsatish talab etildi.",
+        solution: "Shisha idishning aniq 3D geometriyasi Blender'da yasaldi va Nano Banana AI maxsus prompt-arxitekturasi yordamida giper-realistik tabiiy tekstura hamda yorug'lik muhiti bilan uyg'unlashtirildi.",
+        beforeLabel: "BLENDER 3D WIREFRAME / CLAY MESH",
+        afterLabel: "FINAL 4K HYBRID 3D + NANO BANANA AI"
+      },
+      {
+        id: "tma",
+        index: "CASE 03 // TELEGRAM MINI APP",
+        title: "Fast-Food Chain — Telegram Mini App & Ordering Flow",
+        role: "Lead UI/UX Designer (May 2026)",
+        impact: "14 Sekundda Buyurtma",
+        stack: ["Telegram WebApp", "Figma", "Micro-UI", "React Ready"],
+        challenge: "Standart Telegram botdagi matnli tugmalar orqali ovqat buyurtma qilish noqulay bo'lib, mijozlar savatchani to'ldirish jarayonida botni tark etishardi.",
+        solution: "Telegram ichida to'liq ilova kabi ishlovchi WebApp (Mini App) interfeysi, ishtahani ochuvchi 3D/AI mahsulot kartochkalari va 1 bosishda manzil + to'lovni tasdiqlash oqimi yaratildi.",
+        beforeLabel: "ODDIY MATNLI BOT TUGMALARI",
+        afterLabel: "INTERAKTIV TELEGRAM MINI APP UI"
+      },
+      {
+        id: "medical",
+        index: "CASE 04 // HEALTHCARE & WEB",
+        title: "Startup Medical Uzbekistan — Digital Platform UI/UX",
+        role: "UI/UX & Visual Designer (May 2026)",
+        impact: "99% Design-to-Code",
+        stack: ["Figma", "Grid Architecture", "ClickUp", "Tailwind CSS"],
+        challenge: "Tibbiyot va innovatsion salomatlik loyihasi uchun foydalanuvchida yuqori ishonch uyg'otadigan, zamonaviy va tezkor yuklanadigan bosh sahifa (Homepage) arxitekturasi zarur edi.",
+        solution: "Toza tipografik ierarxiya, shifokorlar va xizmatlar filtri hamda React/Tailwind frontend jamoasi uchun tayyor atomar komponentlar tizimi ishlab chiqildi.",
+        beforeLabel: "STRUKTURAVIY UX WIREFRAME",
+        afterLabel: "TAYYOR HIGH-FIDELITY TIBBIY PLATFORM"
+      }
+    ];
+
+    function App() {
+      const [lang, setLang] = useState("uz");
+      const [activePillar, setActivePillar] = useState(0);
+      const [cardOrder, setCardOrder] = useState([0, 1, 2]);
+      const [tilt, setTilt] = useState({ x: 0, y: 0 });
+      const [selectedCase, setSelectedCase] = useState(null);
+      const [sliderPos, setSliderPos] = useState(55);
+      const [copied, setCopied] = useState(false);
+      const [timeStr, setTimeStr] = useState("23:41:00");
+
+      const t = CONTENT[lang];
+
+      useEffect(() => {
+        const updateClock = () => {
+          const now = new Date();
+          setTimeStr(now.toLocaleTimeString("en-GB", { timeZone: "Asia/Tashkent" }));
+        };
+        updateClock();
+        const timer = setInterval(updateClock, 1000);
+        return () => clearInterval(timer);
+      }, []);
+
+      const handleHeroMove = (e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 18;
+        const y = ((e.clientY - rect.top) / rect.height - 0.5) * -18;
+        setTilt({ x, y });
+      };
+
+      const cycleCards = () => {
+        setCardOrder((prev) => [prev[1], prev[2], prev[0]]);
+      };
+
+      const handleCopyBrief = () => {
+        const briefText = `Assalomu alaykum Sanjarbek (@KurbanoVisuals)! Sizning shaxsiy veb-portfoliongiz bilan tanishib chiqdik.\n\nFormat: [Toshkent Ofis Full-Time / Loyihaviy Buyurtma]\nYo'nalish: [Product UI/UX / Blender 3D / Nano Banana AI / Brand Identity]\nBudjet yoki Maosh taklifi: [$1,000 - $1,200+ / Kelishilgan holda]`;
+        navigator.clipboard.writeText(briefText);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2600);
+      };
+
+      return (
+        <div className="min-h-screen bg-obsidian text-alabaster selection:bg-flame selection:text-white">
+          
+          {/* Subtle Film Grain Overlay */}
+          <svg className="pointer-events-none fixed inset-0 z-50 h-full w-full opacity-[0.035]">
+            <filter id="studio-noise">
+              <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="3" stitchTiles="stitch" />
+            </filter>
+            <rect width="100%" height="100%" filter="url(#studio-noise)" />
+          </svg>
+
+          {/* TOP NAVIGATION BAR */}
+          <header className="sticky top-0 z-40 border-b border-white/10 bg-obsidian/85 backdrop-blur-xl">
+            <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-8">
+              <a href="#" className="flex items-center gap-2.5 group">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-flame text-white transition-transform duration-300 group-hover:rotate-45">
+                  <StarFour className="w-4 h-4" fill="#FFFFFF" />
+                </span>
+                <div>
+                  <span className="font-display text-base font-extrabold tracking-tight text-white">KURBONOV</span>
+                  <span className="hidden sm:inline-block ml-2 font-mono text-[10px] text-zinc-400 border border-white/10 rounded px-1.5 py-0.5">TAS // {timeStr}</span>
+                </div>
+              </a>
+
+              <nav className="hidden lg:flex items-center gap-7 text-xs font-medium text-zinc-400">
+                <a href="#about" className="hover:text-white transition">{t.nav[0]}</a>
+                <a href="#pillars" className="hover:text-white transition">{t.nav[2]}</a>
+                <a href="#cases" className="hover:text-white transition">{t.nav[1]}</a>
+                <a href="#resume" className="hover:text-white transition">{t.nav[3]}</a>
+                <a href="#contact" className="hover:text-white transition">{t.nav[4]}</a>
+              </nav>
+
+              <div className="flex items-center gap-2.5">
+                <div className="flex items-center rounded-full border border-white/15 bg-zinc-900/90 p-0.5 font-mono text-[11px]">
+                  {["uz", "ru", "en"].map((l) => (
+                    <button
+                      key={l}
+                      onClick={() => setLang(l)}
+                      className={`px-2.5 py-1 rounded-full uppercase transition ${
+                        lang === l ? "bg-flame text-white font-bold" : "text-zinc-400 hover:text-white"
+                      }`}
+                    >
+                      {l}
+                    </button>
+                  ))}
+                </div>
+
+                <a
+                  href="https://t.me/KurbanoVisuals"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold text-white hover:text-flame transition px-2 py-1"
+                >
+                  <span>@KurbanoVisuals</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-flame" />
+                </a>
+              </div>
+            </div>
+          </header>
+
+          {/* SECTION 1: DARK HERO (FINGUARD ARCHETYPE) */}
+          <section
+            onMouseMove={handleHeroMove}
+            onMouseLeave={() => setTilt({ x: 0, y: 0 })}
+            className="relative overflow-hidden pt-10 pb-20 sm:pt-16 sm:pb-28 carbon-grid"
+          >
+            {/* Ambient Flame Glow */}
+            <div className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[420px] w-[420px] rounded-full bg-flame/20 blur-[130px]" />
+
+            <div className="mx-auto max-w-7xl px-4 sm:px-8 relative z-10">
+              
+              {/* Status Pill & FinGuard Twin Stars */}
+              <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3.5 py-1.5">
+                  <span className="h-2 w-2 rounded-full bg-flame animate-pulse" />
+                  <span className="font-mono text-[11px] tracking-wider text-zinc-300 uppercase">{t.status}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <StarFour className="w-9 h-9 sm:w-12 sm:h-12" fill="#FF4500" />
+                  <StarFour className="w-5 h-5 sm:w-6 sm:h-6 mt-6" fill="#FF4500" />
+                </div>
+              </div>
+
+              {/* Monumental Display Headline */}
+              <h1 className="font-display text-4xl sm:text-6xl lg:text-[78px] font-extrabold tracking-tight leading-[0.96] uppercase text-white max-w-5xl">
+                {t.heroTitle1} <br />
+                <span className="text-zinc-200">{t.heroTitle2}</span>{" "}
+                <span className="text-flame">{t.heroTitle3}</span>
+              </h1>
+
+              {/* 3-Column FinGuard Interactive Centerpiece */}
+              <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                {/* Left Column: Subtitle, Pill + Circle CTA, Active Metrics */}
+                <div className="lg:col-span-4 space-y-8">
+                  <p className="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-sm">
+                    {t.heroSub}
+                  </p>
+
+                  {/* FinGuard Signature Dual Button (Orange Pill + Circular Arrow) */}
+                  <div className="flex items-center gap-2.5">
+                    <a
+                      href="#contact"
+                      className="inline-flex items-center justify-center rounded-full bg-flame hover:bg-flameHover px-7 py-3.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-lg shadow-flame/25 transition"
+                    >
+                      {t.ctaPrimary}
+                    </a>
+                    <a
+                      href="#cases"
+                      aria-label="Explore Cases"
+                      className="flex h-12 w-12 items-center justify-center rounded-full bg-flame hover:bg-flameHover text-white transition hover:rotate-45"
+                    >
+                      <ArrowUpRight className="w-5 h-5" />
+                    </a>
+                  </div>
+
+                  {/* Active Projects & Skill Badges (Bottom Left like 95K+ Active Users) */}
+                  <div className="pt-4 border-t border-white/10">
+                    <div className="flex items-center gap-2 text-xs text-zinc-400 mb-2">
+                      <span className="text-flame">✦</span>
+                      <span>{t.activeMetricLabel}</span>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <span className="font-display text-3xl sm:text-4xl font-extrabold text-white">40+</span>
+                      <div className="flex -space-x-2">
+                        {["UI", "3D", "AI", "FE"].map((badge, idx) => (
+                          <div
+                            key={badge}
+                            className={`flex h-9 w-9 items-center justify-center rounded-full border-2 border-obsidian font-mono text-[11px] font-bold ${
+                              idx === 0 ? "bg-flame text-white" : idx === 1 ? "bg-zinc-800 text-zinc-100" : idx === 2 ? "bg-zinc-700 text-white" : "bg-alabaster text-obsidian"
+                            }`}
+                          >
+                            {badge}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Center Column: Interactive 3D Floating Cards Stack */}
+                <div className="lg:col-span-5 flex flex-col items-center justify-center">
+                  <div
+                    onClick={cycleCards}
+                    title="Click to cycle 3D cards"
+                    style={{
+                      transform: `perspective(1100px) rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`,
+                      transition: "transform 0.18s ease-out"
+                    }}
+                    className="relative h-[340px] w-full max-w-[380px] cursor-pointer select-none"
+                  >
+                    {/* CARD A: ANODIZED FLAME ORANGE (Product UI/UX) */}
+                    <div
+                      className={`absolute inset-x-4 top-2 h-56 rounded-2xl p-6 text-white shadow-2xl transition-all duration-500 border border-white/25 ${
+                        cardOrder[0] === 0
+                          ? "z-30 -rotate-12 translate-y-0 scale-100"
+                          : cardOrder[0] === 1
+                          ? "z-20 rotate-6 translate-y-12 scale-95 opacity-95"
+                          : "z-10 -rotate-3 translate-y-24 scale-90 opacity-85"
+                      }`}
+                      style={{
+                        background: "linear-gradient(135deg, #FF5514 0%, #D93800 55%, #992200 100%)"
+                      }}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="font-display text-2xl font-extrabold tracking-tight lowercase">kurbonov</span>
+                        <div className="h-7 w-9 rounded bg-amber-200/90 border border-amber-400/60 grid grid-cols-2 gap-0.5 p-1">
+                          <span className="border border-amber-700/40 rounded-[1px]" />
+                          <span className="border border-amber-700/40 rounded-[1px]" />
+                          <span className="border border-amber-700/40 rounded-[1px]" />
+                          <span className="border border-amber-700/40 rounded-[1px]" />
+                        </div>
+                      </div>
+                      <div className="mt-10 flex items-end justify-between">
+                        <div>
+                          <p className="font-mono text-[10px] uppercase tracking-widest text-white/75">01 // PRODUCT UI/UX</p>
+                          <p className="font-display text-lg font-bold mt-0.5">Olcha.uz & WebApps</p>
+                        </div>
+                        <span className="font-mono text-xs font-bold bg-black/25 px-2.5 py-1 rounded">FIGMA PRO</span>
+                      </div>
+                    </div>
+
+                    {/* CARD B: BRUSHED TITANIUM (Blender 3D + Nano Banana AI) */}
+                    <div
+                      className={`absolute inset-x-4 top-2 h-56 rounded-2xl p-6 text-white shadow-2xl transition-all duration-500 border border-white/20 ${
+                        cardOrder[1] === 0
+                          ? "z-30 -rotate-12 translate-y-0 scale-100"
+                          : cardOrder[1] === 1
+                          ? "z-20 rotate-6 translate-y-12 scale-95 opacity-95"
+                          : "z-10 -rotate-3 translate-y-24 scale-90 opacity-85"
+                      }`}
+                      style={{
+                        background: "linear-gradient(135deg, #52525B 0%, #27272A 50%, #18181B 100%)"
+                      }}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="font-mono text-xs font-bold tracking-widest uppercase text-zinc-300">BLENDER 3D // AI</span>
+                        <StarFour className="w-5 h-5" fill="#FF4500" />
+                      </div>
+                      <div className="mt-12 flex items-end justify-between">
+                        <div>
+                          <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400">PHOTOREALISTIC ASSETS</p>
+                          <p className="font-display text-lg font-bold mt-0.5">Nano Banana AI + Cycles</p>
+                        </div>
+                        <span className="font-mono text-xs text-flame font-bold">4K RENDER</span>
+                      </div>
+                    </div>
+
+                    {/* CARD C: MATTE OBSIDIAN CARBON (Marketplace & React Code) */}
+                    <div
+                      className={`absolute inset-x-4 top-2 h-56 rounded-2xl p-6 text-white shadow-2xl transition-all duration-500 border border-zinc-700 ${
+                        cardOrder[2] === 0
+                          ? "z-30 -rotate-12 translate-y-0 scale-100"
+                          : cardOrder[2] === 1
+                          ? "z-20 rotate-6 translate-y-12 scale-95 opacity-95"
+                          : "z-10 -rotate-3 translate-y-24 scale-90 opacity-85"
+                      }`}
+                      style={{
+                        background: "linear-gradient(145deg, #18181B 0%, #09090B 100%)"
+                      }}
+                    >
+                      <div className="flex items-center justify-between font-mono text-xs text-zinc-400">
+                        <span>2018  2021  2024  2026</span>
+                        <span className="text-flame font-bold">TAS // UZ</span>
+                      </div>
+                      <div className="mt-12 flex items-end justify-between">
+                        <div>
+                          <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-400">SENIOR DESIGNER</p>
+                          <p className="font-display text-lg font-bold mt-0.5">Sanjarbek Kurbonov</p>
+                        </div>
+                        <span className="font-mono text-xs font-bold text-white border border-white/20 px-2.5 py-1 rounded">REACT + TW</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="mt-2 font-mono text-[11px] text-zinc-500 uppercase tracking-widest">
+                    [ KARTALAR USTIGA BOSIB AYLANTIRING ↻ ]
+                  </p>
+                </div>
+
+                {/* Right Column: FinGuard Technical Bent Callout Lines */}
+                <div className="lg:col-span-3 space-y-6">
+                  {[
+                    { title: t.callout1, idx: 0 },
+                    { title: t.callout2, idx: 1 },
+                    { title: t.callout3, idx: 2 }
+                  ].map((item, i) => (
+                    <button
+                      key={i}
+                      onClick={() => {
+                        setActivePillar(item.idx);
+                        document.getElementById("pillars")?.scrollIntoView({ behavior: "smooth" });
+                      }}
+                      className="group w-full text-left block"
+                    >
+                      <div className="flex items-center justify-between text-xs font-semibold text-zinc-200 group-hover:text-flame transition">
+                        <span className="max-w-[180px] leading-snug">{item.title}</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400 group-hover:text-flame transition" />
+                      </div>
+                      {/* Bent Technical SVG Line */}
+                      <svg viewBox="0 0 240 18" fill="none" className="w-full mt-1.5">
+                        <path
+                          d="M0 16H175L192 2H240"
+                          stroke="currentColor"
+                          strokeWidth="1.2"
+                          className="text-zinc-700 group-hover:text-flame transition"
+                        />
+                        <circle cx="192" cy="2" r="2" className="fill-flame" />
+                      </svg>
+                    </button>
+                  ))}
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          {/* SECTION 2: LIGHT EDITORIAL SHEET (FINGUARD BENTO METRICS + 01-04 OVERLAP) */}
+          <section id="about" className="bg-alabaster text-obsidian rounded-t-[36px] sm:rounded-t-[52px] py-16 sm:py-24 px-4 sm:px-8 shadow-2xl">
+            <div className="mx-auto max-w-7xl">
+              
+              {/* ABOUT HEADER */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12">
+                <div className="lg:col-span-7">
+                  <p className="font-mono text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">{t.aboutTag}</p>
+                  <h2 className="font-display text-3xl sm:text-5xl font-extrabold tracking-tight uppercase leading-[1.02]">
+                    {t.aboutTitle1} <br />
+                    <span className="text-flame">{t.aboutTitle2}</span>
+                  </h2>
+                </div>
+                <div className="lg:col-span-5">
+                  <p className="text-sm sm:text-base text-zinc-600 leading-relaxed">
+                    {t.aboutDesc}
+                  </p>
+                </div>
+              </div>
+
+              {/* 3 ASYMMETRIC BENTO METRIC CARDS (Exact FinGuard 500k / 98% / 24K Layout) */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-24">
+                
+                {/* Wide Flame Orange Card */}
+                <div className="lg:col-span-6 rounded-3xl bg-flame p-8 sm:p-10 text-white flex flex-col justify-between min-h-[250px] shadow-xl shadow-flame/15 relative overflow-hidden">
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-baseline gap-3">
+                      <span className="flex h-8 w-8 items-center justify-center rounded-full bg-obsidian text-white font-mono text-xs font-bold">✦</span>
+                      <span className="font-display text-5xl sm:text-6xl font-extrabold tracking-tight">{t.stat1Title}</span>
+                      <span className="font-sans text-xl sm:text-2xl font-bold opacity-90">experience</span>
+                    </div>
+                  </div>
+                  <p className="mt-8 text-xs sm:text-sm text-white/90 max-w-md leading-relaxed">
+                    {t.stat1Sub}
+                  </p>
+                </div>
+
+                {/* Middle Obsidian Black Card */}
+                <div className="lg:col-span-3 rounded-3xl bg-obsidian p-8 text-white flex flex-col justify-between min-h-[250px]">
+                  <div className="flex items-start gap-2">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-flame text-white font-mono text-xs font-bold">↗</span>
+                    <span className="font-display text-5xl sm:text-6xl font-extrabold tracking-tight">+34<sup className="text-2xl text-flame">%</sup></span>
+                  </div>
+                  <p className="mt-8 text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                    {t.stat2Sub}
+                  </p>
+                </div>
+
+                {/* Right Soft Grey Card */}
+                <div className="lg:col-span-3 rounded-3xl bg-white border border-zinc-200/80 p-8 text-obsidian flex flex-col justify-between min-h-[250px]">
+                  <div className="flex items-start gap-2">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-flame text-white font-mono text-xs font-bold">★</span>
+                    <span className="font-display text-5xl sm:text-6xl font-extrabold tracking-tight">+42<sup className="text-2xl text-flame">%</sup></span>
+                  </div>
+                  <p className="mt-8 text-xs sm:text-sm text-zinc-600 leading-relaxed">
+                    {t.stat3Sub}
+                  </p>
+                </div>
+              </div>
+
+              {/* SECTION 2B: ALL-IN-ONE PLATFORM 01-04 + OVERLAPPING FLOATING CARD */}
+              <div id="pillars" className="pt-4">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-10">
+                  <div className="lg:col-span-7">
+                    <p className="font-mono text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">{t.featuresTag}</p>
+                    <h2 className="font-display text-3xl sm:text-5xl font-extrabold tracking-tight uppercase leading-[1.04]">
+                      {t.featuresTitle1} <br />
+                      {t.featuresTitle2}
+                    </h2>
+                  </div>
+                  <div className="lg:col-span-5">
+                    <p className="text-sm sm:text-base text-zinc-600 leading-relaxed">
+                      {t.featuresDesc}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Interactive 01-04 Strips + Floating Card Overlay */}
+                <div className="relative">
+                  <div className="divide-y divide-zinc-200 border-y border-zinc-200">
+                    {PILLARS.map((pillar, idx) => {
+                      const isActive = activePillar === idx;
+                      return (
+                        <div
+                          key={pillar.num}
+                          onClick={() => setActivePillar(idx)}
+                          className={`group cursor-pointer transition-all duration-300 px-4 sm:px-8 py-7 flex items-center justify-between ${
+                            isActive
+                              ? "bg-obsidian text-white rounded-2xl shadow-xl my-1"
+                              : "bg-transparent text-obsidian hover:bg-zinc-200/60"
+                          }`}
+                        >
+                          <div className="flex items-center gap-6 sm:gap-12 max-w-xl">
+                            <span className={`font-mono text-sm font-bold ${isActive ? "text-flame" : "text-zinc-400"}`}>
+                              {pillar.num}
+                            </span>
+                            <div>
+                              <span className="font-mono text-[10px] uppercase tracking-widest text-flame block mb-1">
+                                {pillar.badge}
+                              </span>
+                              <h3 className="font-display text-lg sm:text-2xl font-bold tracking-tight">
+                                {pillar.title}
+                              </h3>
+                            </div>
+                          </div>
+
+                          <div
+                            className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition ${
+                              isActive
+                                ? "bg-flame text-white"
+                                : "bg-zinc-200 text-zinc-700 group-hover:bg-obsidian group-hover:text-white"
+                            }`}
+                          >
+                            <ArrowUpRight className="w-4 h-4" />
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Overlapping Floating White Inspector Card (Exact FinGuard "Latest Invoice" Archetype) */}
+                  <div className="mt-8 lg:mt-0 lg:absolute lg:right-16 lg:top-1/2 lg:-translate-y-1/2 lg:w-[430px] z-20 rounded-3xl bg-white p-6 sm:p-7 shadow-[0_25px_70px_rgba(0,0,0,0.18)] border border-zinc-200/90">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-1.5">
+                        <span className="h-2.5 w-2.5 rounded-full bg-flame" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-zinc-300" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-zinc-200" />
+                      </div>
+                      <span className="font-mono text-[11px] font-bold text-zinc-400 uppercase">
+                        LIVE TELEMETRY // {PILLARS[activePillar].num}
+                      </span>
+                    </div>
+
+                    <p className="font-display text-sm font-bold text-obsidian mb-3">
+                      {PILLARS[activePillar].title}
+                    </p>
+
+                    {/* Dual Orange / Black Progress Bar */}
+                    <div className="flex h-2.5 w-full overflow-hidden rounded-full bg-zinc-100 mb-4 p-0.5 gap-1">
+                      <div className="w-3/5 rounded-full bg-flame transition-all duration-500" />
+                      <div className="w-1/4 rounded-full bg-obsidian transition-all duration-500" />
+                      <div className="flex-1 rounded-full bg-zinc-300" />
+                    </div>
+
+                    {/* 3 Metric Columns */}
+                    <div className="grid grid-cols-3 gap-2 pb-5 mb-4 border-b border-zinc-100">
+                      <div>
+                        <div className="flex items-center gap-1.5">
+                          <span className="h-2 w-2 rounded-full bg-flame" />
+                          <span className="font-display text-lg font-extrabold text-obsidian">
+                            {PILLARS[activePillar].metricMain}
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-zinc-500 mt-0.5">{PILLARS[activePillar].metricLabels[0]}</p>
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-1.5">
+                          <span className="h-2 w-2 rounded-full bg-obsidian" />
+                          <span className="font-display text-lg font-extrabold text-obsidian">
+                            {PILLARS[activePillar].metricPending}
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-zinc-500 mt-0.5">{PILLARS[activePillar].metricLabels[1]}</p>
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-1.5">
+                          <span className="h-2 w-2 rounded-full bg-zinc-400" />
+                          <span className="font-display text-lg font-extrabold text-obsidian">
+                            {PILLARS[activePillar].metricCancel}
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-zinc-500 mt-0.5">{PILLARS[activePillar].metricLabels[2]}</p>
+                      </div>
+                    </div>
+
+                    {/* Deliverable Rows */}
+                    <div className="space-y-3">
+                      {PILLARS[activePillar].items.map((row, rIdx) => (
+                        <div key={rIdx} className="flex items-center justify-between gap-3">
+                          <div className="flex items-center gap-3">
+                            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-zinc-100 font-mono text-xs font-bold text-obsidian">
+                              0{rIdx + 1}
+                            </div>
+                            <div>
+                              <p className="text-xs font-bold text-obsidian leading-tight">{row.name}</p>
+                              <p className="text-[11px] text-zinc-400">{row.date}</p>
+                            </div>
+                          </div>
+                          <span className={`px-2.5 py-1 rounded-full font-mono text-[10px] font-bold ${row.color}`}>
+                            {row.status}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* SECTION 3: CASE STUDIES & BEFORE/AFTER INTERACTIVE MODAL TRIGGER */}
+              <div id="cases" className="mt-28 pt-12 border-t border-zinc-200">
+                <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
+                  <div>
+                    <p className="font-mono text-xs font-bold uppercase tracking-widest text-zinc-500 mb-2">{t.casesTag}</p>
+                    <h2 className="font-display text-3xl sm:text-5xl font-extrabold tracking-tight uppercase">
+                      {t.casesTitle1} <span className="text-flame">{t.casesTitle2}</span>
+                    </h2>
+                  </div>
+                  <span className="font-mono text-xs text-zinc-500 uppercase">
+                    [ HAR BIR KEYS USTIGA BOSIB BEFORE / AFTER REJIMIDA KO'RING ]
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {CASES.map((c) => (
+                    <div
+                      key={c.id}
+                      onClick={() => {
+                        setSelectedCase(c);
+                        setSliderPos(55);
+                      }}
+                      className="group cursor-pointer rounded-3xl bg-white border border-zinc-200/90 p-7 sm:p-8 transition-all duration-300 hover:border-flame hover:shadow-2xl flex flex-col justify-between"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between gap-2 mb-4">
+                          <span className="font-mono text-xs font-bold text-flame">{c.index}</span>
+                          <span className="rounded-full bg-obsidian text-white font-mono text-[11px] font-bold px-3 py-1">
+                            {c.impact}
+                          </span>
+                        </div>
+                        <h3 className="font-display text-2xl font-extrabold text-obsidian group-hover:text-flame transition">
+                          {c.title}
+                        </h3>
+                        <p className="text-xs font-semibold text-zinc-400 mt-1 mb-4">{c.role}</p>
+                        <p className="text-sm text-zinc-600 leading-relaxed mb-6">{c.challenge}</p>
+                      </div>
+
+                      <div className="flex items-center justify-between pt-4 border-t border-zinc-100">
+                        <div className="flex flex-wrap gap-1.5">
+                          {c.stack.map((s) => (
+                            <span key={s} className="rounded-md bg-zinc-100 px-2.5 py-1 font-mono text-[11px] font-medium text-zinc-700">
+                              {s}
+                            </span>
+                          ))}
+                        </div>
+                        <span className="inline-flex items-center gap-1 font-mono text-xs font-bold text-obsidian group-hover:text-flame">
+                          INSPECT <ArrowUpRight className="w-4 h-4" />
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* SECTION 3B: EXECUTIVE RESUME & CAREER CHRONOLOGY */}
+              <div id="resume" className="mt-20 rounded-3xl bg-obsidian text-white p-8 sm:p-12">
+                <div className="flex flex-wrap items-center justify-between gap-4 pb-8 border-b border-white/10">
+                  <div>
+                    <p className="font-mono text-xs text-flame uppercase tracking-widest">EXECUTIVE CURRICULUM VITAE // 2018–2026</p>
+                    <h3 className="font-display text-2xl sm:text-4xl font-extrabold mt-1">SANJARBEK KURBONOV</h3>
+                  </div>
+                  <div className="flex flex-wrap gap-2 font-mono text-xs">
+                    <span className="rounded-full bg-white/10 px-3.5 py-1.5">Toshkent, O'zbekiston</span>
+                    <span className="rounded-full bg-flame px-3.5 py-1.5 font-bold">@KurbanoVisuals</span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
+                  {[
+                    {
+                      period: "2024 — 2026 (HOZIR)",
+                      role: "Senior Product, 3D/AI & Brand Designer",
+                      org: "Mustaqil Hamkorlik & Loyihalar",
+                      desc: "Startup Medical Uzbekistan UI/UX, Fast-Food Telegram Mini App, Nano Banana AI tijoriy foto-studiya oqimlari, Blender MCP + React/Tailwind integratsiyasi."
+                    },
+                    {
+                      period: "2023 — 2024",
+                      role: "UX & Product Designer",
+                      org: "Olcha.uz Marketpleys Ekotizimi",
+                      desc: "Mobil ilova vizual dizayni, savatcha va checkout oqimlari, mahsulot kartochkalari hamda murakkab filtr tizimlarini loyihalash."
+                    },
+                    {
+                      period: "2021 — 2023",
+                      role: "3D Modeler & Marketplace Designer",
+                      org: "E-Commerce & Blender 3D",
+                      desc: "2021-yildan Blender 3D modellashtirish va mahsulot vizualizatsiyasi, 2022-yildan marketpleyslar uchun yuqori CTR infografika tizimlari."
+                    },
+                    {
+                      period: "2018 — 2021",
+                      role: "Graphic & Visual Identity Designer",
+                      org: "Raqamli Brending & Aydentika",
+                      desc: "Kompaniyalar uchun logotip, brendbuk, SMD va raqamli vizual kommunikatsiya tizimlarini yaratish."
+                    }
+                  ].map((exp, i) => (
+                    <div key={i} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 flex flex-col justify-between">
+                      <div>
+                        <span className="font-mono text-xs font-bold text-flame">{exp.period}</span>
+                        <h4 className="font-display text-lg font-bold mt-2">{exp.role}</h4>
+                        <p className="text-xs text-zinc-400 font-semibold mt-0.5 mb-3">{exp.org}</p>
+                        <p className="text-xs text-zinc-300 leading-relaxed">{exp.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* SECTION 4: FINGUARD BOTTOM SPLIT SHOWCASE (ORANGE VERTICAL CARDS + BENEFITS) */}
+              <div id="contact" className="mt-24 pt-12 border-t border-zinc-200 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                {/* Left Vertical Twin Cards (Exact FinGuard Bottom-Left Composition) */}
+                <div className="lg:col-span-5 flex items-center justify-center">
+                  <div className="relative h-[380px] w-[300px] sm:w-[340px]">
+                    {/* Tilted Back Card */}
+                    <div
+                      className="absolute right-2 top-4 h-[330px] w-[215px] rounded-3xl p-6 text-white shadow-xl rotate-12 flex flex-col justify-between"
+                      style={{ background: "linear-gradient(145deg, #FF5514 0%, #C83200 100%)" }}
+                    >
+                      <div className="flex justify-between items-center font-mono text-xs">
+                        <span className="font-bold">FULL-TIME // TAS</span>
+                        <span>2026</span>
+                      </div>
+                      <div>
+                        <p className="font-mono text-[10px] uppercase opacity-80">EXPECTED COMPENSATION</p>
+                        <p className="font-display text-2xl font-extrabold mt-1">$1,000–$1,200+</p>
+                      </div>
+                    </div>
+
+                    {/* Upright Front Card */}
+                    <div
+                      className="absolute left-2 top-2 h-[340px] w-[220px] rounded-3xl p-6 text-white shadow-2xl border border-white/25 flex flex-col justify-between"
+                      style={{ background: "linear-gradient(165deg, #FF4500 0%, #B82900 100%)" }}
+                    >
+                      <div className="flex items-start justify-between">
+                        <div className="h-9 w-7 rounded bg-amber-200/90 border border-amber-500/50" />
+                        <span className="font-mono text-[10px] font-bold uppercase tracking-widest bg-black/25 px-2 py-1 rounded">
+                          VERIFIED
+                        </span>
+                      </div>
+
+                      <div className="my-auto">
+                        <p className="font-display text-3xl font-extrabold tracking-tight leading-none lowercase">
+                          kurbonov
+                        </p>
+                        <p className="font-mono text-[10px] uppercase tracking-widest text-white/80 mt-2">
+                          UI/UX · 3D · AI · BRAND
+                        </p>
+                      </div>
+
+                      <div className="pt-3 border-t border-white/20 flex items-center justify-between font-mono text-[11px]">
+                        <span>@KurbanoVisuals</span>
+                        <span>↗</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Column: Benefits & Direct Action Buttons */}
+                <div className="lg:col-span-7 space-y-6">
+                  <p className="font-mono text-xs font-bold uppercase tracking-widest text-zinc-500">{t.benefitsTag}</p>
+                  <h2 className="font-display text-3xl sm:text-5xl font-extrabold tracking-tight uppercase leading-[1.02]">
+                    {t.benefitsTitle1} <br />
+                    <span className="text-flame">{t.benefitsTitle2}</span>
+                  </h2>
+
+                  <div className="space-y-4 pt-2">
+                    {[t.b1, t.b2, t.b3].map((point, idx) => (
+                      <div key={idx} className="flex items-start gap-4">
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-zinc-200 font-mono text-xs font-bold text-obsidian">
+                          0{idx + 1}
+                        </span>
+                        <p className="text-sm sm:text-base text-zinc-700 leading-relaxed pt-1">{point}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="pt-4 flex flex-wrap items-center gap-3">
+                    <a
+                      href="https://t.me/KurbanoVisuals"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full bg-flame hover:bg-flameHover px-7 py-4 text-xs font-extrabold uppercase tracking-wider text-white shadow-xl shadow-flame/25 transition"
+                    >
+                      <span>{t.tgBtn}</span>
+                    </a>
+                    <a
+                      href="https://t.me/KurbanoVisuals"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex h-12 w-12 items-center justify-center rounded-full bg-flame hover:bg-flameHover text-white transition"
+                    >
+                      <ArrowUpRight className="w-5 h-5" />
+                    </a>
+                    <button
+                      onClick={handleCopyBrief}
+                      className="rounded-full bg-obsidian hover:bg-zinc-800 px-6 py-4 text-xs font-extrabold uppercase tracking-wider text-white transition"
+                    >
+                      {copied ? t.copied : t.copyBrief}
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          {/* FOOTER */}
+          <footer className="bg-obsidian text-zinc-500 py-10 px-4 sm:px-8 border-t border-white/10">
+            <div className="mx-auto max-w-7xl flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
+              <span>© 2026 SANJARBEK KURBONOV // SENIOR PRODUCT & 3D DESIGNER</span>
+              <span>TELEGRAM: @KurbanoVisuals // TASHKENT, UZBEKISTAN</span>
+            </div>
+          </footer>
+
+          {/* INTERACTIVE CASE STUDY MODAL WITH BEFORE/AFTER SLIDER */}
+          {selectedCase && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 overflow-y-auto">
+              <div className="relative w-full max-w-3xl rounded-3xl bg-obsidian border border-white/15 p-6 sm:p-8 text-white shadow-2xl my-8">
+                <div className="flex items-start justify-between gap-4 mb-6">
+                  <div>
+                    <span className="font-mono text-xs text-flame font-bold">{selectedCase.index}</span>
+                    <h3 className="font-display text-2xl sm:text-3xl font-extrabold mt-1">{selectedCase.title}</h3>
+                    <p className="text-xs text-zinc-400 mt-1">{selectedCase.role}</p>
+                  </div>
+                  <button
+                    onClick={() => setSelectedCase(null)}
+                    className="rounded-full bg-white/10 hover:bg-flame px-3.5 py-1.5 font-mono text-xs font-bold transition"
+                  >
+                    ✕ ESC
+                  </button>
+                </div>
+
+                {/* Interactive Before / After Visual Inspector */}
+                <div className="relative h-60 sm:h-72 w-full overflow-hidden rounded-2xl border border-white/15 mb-6 select-none">
+                  {/* AFTER LAYER (Full) */}
+                  <div
+                    className="absolute inset-0 flex flex-col justify-between p-6"
+                    style={{ background: "linear-gradient(135deg, #FF4500 0%, #18181B 85%)" }}
+                  >
+                    <div className="flex justify-between items-center">
+                      <span className="rounded bg-black/40 px-2.5 py-1 font-mono text-[10px] font-bold text-white">
+                        AFTER // {selectedCase.afterLabel}
+                      </span>
+                      <span className="font-mono text-xs font-bold text-white">{selectedCase.impact}</span>
+                    </div>
+                    <div className="my-auto text-center">
+                      <p className="font-display text-2xl sm:text-3xl font-extrabold text-white">{selectedCase.title}</p>
+                      <p className="font-mono text-xs text-white/80 mt-2">PRODUCTION READY · HIGH CONVERSION</p>
+                    </div>
+                  </div>
+
+                  {/* BEFORE LAYER (Clipped by Slider) */}
+                  <div
+                    style={{ width: `${sliderPos}%` }}
+                    className="absolute inset-y-0 left-0 overflow-hidden bg-zinc-900 border-r-2 border-flame"
+                  >
+                    <div className="h-full w-full p-6 flex flex-col justify-between carbon-grid">
+                      <span className="inline-block w-max rounded bg-zinc-800 px-2.5 py-1 font-mono text-[10px] font-bold text-zinc-300">
+                        BEFORE // {selectedCase.beforeLabel}
+                      </span>
+                      <div className="my-auto">
+                        <p className="font-mono text-sm text-zinc-400 uppercase tracking-widest">
+                          [ WIREFRAME / RAW STRUCTURE ]
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <div className="flex justify-between font-mono text-[11px] text-zinc-400 mb-1.5">
+                    <span>◀ WIREFRAME / BEFORE</span>
+                    <span>SLIDER: {sliderPos}%</span>
+                    <span>FINAL PRODUCTION / AFTER ▶</span>
+                  </div>
+                  <input
+                    type="range"
+                    min="5"
+                    max="95"
+                    value={sliderPos}
+                    onChange={(e) => setSliderPos(Number(e.target.value))}
+                    className="w-full accent-flame cursor-ew-resize"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
+                  <div className="rounded-2xl bg-white/[0.04] p-4 border border-white/10">
+                    <p className="font-mono text-[11px] font-bold text-zinc-400 uppercase mb-1">MUAMMO (CHALLENGE)</p>
+                    <p className="text-zinc-200 leading-relaxed">{selectedCase.challenge}</p>
+                  </div>
+                  <div className="rounded-2xl bg-white/[0.04] p-4 border border-white/10">
+                    <p className="font-mono text-[11px] font-bold text-flame uppercase mb-1">YECHIM (SOLUTION)</p>
+                    <p className="text-zinc-200 leading-relaxed">{selectedCase.solution}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+</body>
+</html>
